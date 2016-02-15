@@ -1,6 +1,10 @@
 notifications:
     email: false
 
+branches:
+    except:
+        - gh-pages
+
 language: java
 
 install:
