@@ -1,0 +1,12 @@
+notifications:
+    email: false
+
+language: java
+
+install:
+    - nvm install 5 && nvm use 5
+    - npm install --global npm@3
+
+script:
+    - npm install
+    - npm run build
