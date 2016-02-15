@@ -7,7 +7,7 @@ const server = superstatic({
     port: 8000,
     cwd: __dirname,
     config: {
-      public: "./build"
+        public: "./build"
     }
 });
 
