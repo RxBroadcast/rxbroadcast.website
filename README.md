@@ -1,7 +1,7 @@
-[rxbroadcast.website](https://rxbroadcast.website)
-==================================================
+[rxbroadcast.website](http://rxbroadcast.website)
+=================================================
 
-This is the source for [rxbroadcast.website](https://rxbroadcast.website), the website for the [RxBroadcast](https://github.com/whymarrh/RxBroadcast) project.
+This is the source for [rxbroadcast.website](http://rxbroadcast.website), the website for the [RxBroadcast](https://github.com/RxBroadcast/RxBroadcast) project.
 
 Quick start
 -----------
