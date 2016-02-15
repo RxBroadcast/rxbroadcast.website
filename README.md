@@ -9,4 +9,4 @@ Quick start
 To build the site:
 
     vagrant up
-    vagrant ssh --command 'cd workspace && npm i && npm run build'
+    vagrant ssh --command 'cd workspace && npm i && npm run build:watch'

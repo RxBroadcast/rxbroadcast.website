@@ -1,3 +1,4 @@
+const argv = require("yargs").argv;
 const Metalsmith = require("metalsmith");
 const superstatic = require("superstatic").server;
 const watch = require("metalsmith-watch");
@@ -12,12 +13,16 @@ const server = superstatic({
 });
 
 metalsmith.source("website")
-    .use(watch({
+    .use(argv.watch && watch({
         log: _ => { }
     }))
     .build((err, files) => {
         if (err) {
             console.error(err);
+            return;
+        }
+
+        if (!argv.serve) {
             return;
         }
 

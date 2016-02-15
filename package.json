@@ -5,9 +5,11 @@
     "babel-preset-es2015": "^6.5.0",
     "metalsmith": "^2.1.0",
     "metalsmith-watch": "^1.0.1",
-    "superstatic": "^4.0.1"
+    "superstatic": "^4.0.1",
+    "yargs": "^4.1.0"
   },
   "scripts": {
-    "build": "babel-node metalsmith.js"
+    "build": "babel-node metalsmith.js --no-serve --no-watch",
+    "build:watch": "babel-node metalsmith.js --serve --watch"
   }
 }
