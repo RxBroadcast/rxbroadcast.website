@@ -12,7 +12,7 @@ const server = superstatic({
     }
 });
 
-metalsmith.source("website")
+metalsmith.source("website").clean(false)
     .use(argv.watch && watch({
         log: _ => { }
     }))
