@@ -4,6 +4,10 @@ Vagrant.configure(2) do |config|
 
     config.vm.box = "ubuntu/vivid64"
 
+    config.vm.provider :virtualbox do |virtualbox, override|
+        virtualbox.customize ["modifyvm", :id, "--memory", "1024"]
+    end
+
     config.vm.network "forwarded_port", guest: 8000, host: 8000
 
     config.vm.provision "shell", name: "Install Node.js",
