@@ -20,7 +20,4 @@ Vagrant.configure(2) do |config|
 
     config.vm.provision "shell", name: "Install Travis CI Gem",
         inline: "{ apt-get -y install ruby-dev && gem install travis ; } &> /dev/null"
-
-    config.vm.provision "shell", name: "Install AWS CLI",
-        inline: "{ apt-get -y install python-pip && pip install --upgrade awscli ; } &> /dev/null"
 end
