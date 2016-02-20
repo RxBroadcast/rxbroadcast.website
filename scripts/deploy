@@ -3,6 +3,7 @@
 set -e
 
 rm --recursive --force build
+git branch --all
 git branch gh-pages origin/gh-pages
 git worktree add build gh-pages
 npm install && npm run build
