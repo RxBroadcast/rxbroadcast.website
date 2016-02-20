@@ -2,9 +2,6 @@
 
 set -e
 
-sudo apt-get -y install git
-git --version
-
 rm --recursive --force build
 git branch gh-pages origin/gh-pages
 git worktree add build gh-pages
