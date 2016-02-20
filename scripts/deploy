@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -e
+
+sudo apt-get -y install git
+git --version
+
+rm --recursive --force build
+git branch gh-pages origin/gh-pages
+git worktree add build gh-pages
+npm install && npm run build
+
+pushd build
+    if git diff-index --quiet HEAD
+    then
+        exit 0
+    fi
+
+    git config user.email "not.a.real.address@example.com"
+    git config user.name "Travis CI"
+    git commit --all --message "Automated build" --message "$TRAVIS_COMMIT_RANGE"
+
+    git push "https://$GITHUB_USER:$GITHUB_PASSWORD@github.com/$TRAVIS_REPO_SLUG" gh-pages
+popd
