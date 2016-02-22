@@ -1,6 +1,6 @@
 const argv = require("yargs").argv;
 const Metalsmith = require("metalsmith");
-var postcss = require("metalsmith-postcss");
+const postcss = require("metalsmith-postcss");
 const superstatic = require("superstatic").server;
 const watch = require("metalsmith-watch");
 
