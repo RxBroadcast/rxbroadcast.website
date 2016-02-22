@@ -10,12 +10,12 @@ Vagrant.configure(2) do |config|
 
     config.vm.network "forwarded_port", guest: 8000, host: 8000
 
-    config.vm.provision "shell", name: "Install Node.js",
+    config.vm.provision "shell", privileged: false, name: "Install Node.js",
         inline:
         %(
-            ( curl --silent https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add - ) &> /dev/null
-            echo 'deb https://deb.nodesource.com/node_5.x vivid main' > /etc/apt/sources.list.d/nodesource.list
-            ( apt-get update && apt-get -y install nodejs && npm --silent install --global npm@3 ) &> /dev/null
+            bash -ic "$(curl -sL -o- https://git.io/v2LXX)" &> /dev/null
+            bash -ic "nvm install 5 && nvm use 5" &> /dev/null
+            bash -ic "npm install --global npm@3" &> /dev/null
         )
 
     config.vm.provision "shell", name: "Install Travis CI Gem",
