@@ -1,0 +1,26 @@
+$monospace-font-family: "Consolas", monospace;
+$font-family: -apple-system,
+    "Avenir Next",
+    "Avenir",
+    "Roboto",
+    "Noto",
+    "Helvetica Neue",
+    "Helvetica",
+    "Ubuntu",
+    "Franklin Gothic Medium",
+    "Century Gothic",
+    sans-serif;
+
+@import "furtive/scss/all";
+
+.header {
+    @extend .py2;
+}
+
+.nav {
+    @extend .my2;
+}
+
+.tagline {
+    @extend .small, .muted;
+}

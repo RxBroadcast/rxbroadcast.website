@@ -1,6 +1,7 @@
 const argv = require("yargs").argv;
 const Metalsmith = require("metalsmith");
 const postcss = require("metalsmith-postcss");
+const sass = require("metalsmith-sass");
 const superstatic = require("superstatic").server;
 const watch = require("metalsmith-watch");
 
@@ -14,6 +15,11 @@ const server = superstatic({
 });
 
 metalsmith.source("website").clean(false)
+    .use(sass({
+        includePaths: [ "node_modules/" ],
+        outputDir: "css/",
+        outputStyle: "expanded"
+    }))
     .use(postcss([
         require("autoprefixer"),
         require("cssnano"),
