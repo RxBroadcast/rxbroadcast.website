@@ -9,6 +9,8 @@ branches:
         - gh-pages
 
 language: java
+jdk:
+    - oraclejdk8
 env:
     global:
         - secure: "PhGHm0DNadLqeECbh5dZLkrMKlX91SstaOYwr5YRrG+0Vx8qSerRQVPS1oF43UbO4HjrNGC9jNj+KbGy+QQlZkJmCt7vS114K35ABmVX2UxP1K/s4zXmnm5qRxquECEBrcGIn1qLgFK1fjwlN/XxtwzXPpi4EHAaljohTIxsjz89HiJZXhKke6WiWElJoXy3IpwA8cynB0rzBi4dSnbS8nrbbYQ3bt3RHrgpI4hG2f7xqFn7QuIviDpU+nip+jfdwIgxS9UTt8f2U42kI4H8OUqKsjx+9rHOxhfb29Yj3ZNgNXIpZjJm7ENoD8FdTp0kLSmWlgspl0/Ad/jXpI8d66OMebUsJdp1nC+RnVv1eK465yxslO6FTiSu+Rbkul+KZcBxZ0sfFJ6bCezvxo/44rQhP1vSPOC6BBBtLV+iSfNb5npy0nB/pDnWXvKaACjgQ0w2EhHf7ZSu1mp4LKeFZcOpZLUG5H4/1wuFIAfnBzj4aGynGkEcODP0K7ESV/n7BXm2rCWfi1tRj5ZXHF9jViYaCa/Qogf9Q7hyDkUIi56stxTEC/+k9Na/J2c+H+seAgz/EWig0I2qINv+njnliCO5O38AgwnT3TOOTxzfVBPslQu1XZkaRef+Ik5rjixPJf1cUaajEeHpFgg/wzYisYRgXVF/ljigVxtjZlLEZcI="
@@ -28,4 +30,8 @@ after_success:
     - sudo apt-get update
     - sudo apt-get -y install git
     - git --version
+    - sudo apt-get -y install oracle-java8-installer
+    - ( cd $HOME && curl -LO "https://services.gradle.org/distributions/gradle-2.11-bin.zip" )
+    - ( cd $HOME && unzip -q gradle-2.11-bin.zip && rm gradle-2.11-bin.zip )
+    - export PATH=$HOME/gradle-2.11/bin:$PATH && hash -r && gradle --version
     - scripts/deploy
