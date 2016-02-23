@@ -8,6 +8,7 @@ git fetch --all
 git branch gh-pages origin/gh-pages
 git worktree add build gh-pages
 npm install && npm run build
+tree -I node_modules build
 
 pushd build
     if git diff-index --quiet HEAD
