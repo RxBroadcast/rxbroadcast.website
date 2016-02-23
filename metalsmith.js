@@ -1,4 +1,5 @@
 const argv = require("yargs").argv;
+const htmlMinifier = require("metalsmith-html-minifier");
 const Metalsmith = require("metalsmith");
 const postcss = require("metalsmith-postcss");
 const sass = require("metalsmith-sass");
@@ -24,6 +25,7 @@ metalsmith.source("website").clean(false)
         require("autoprefixer"),
         require("cssnano"),
     ]))
+    .use(htmlMinifier())
     .use(argv.watch && watch({
         log: _ => { }
     }))
