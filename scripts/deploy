@@ -2,12 +2,27 @@
 
 set -e
 
+add_javadoc_from() {
+    local repo="$1"
+    local dest="$2"
+
+    mkdir --parents "$repo"
+    git clone "https://github.com/$repo" "$repo"
+    pushd "$repo"
+        gradle javadoc
+    popd
+
+    test -d "$dest" || mkdir --parents "$dest"
+    mv "$repo/build/docs/javadoc" "$dest"
+}
+
 rm --recursive --force build
 git remote set-branches --add origin gh-pages
 git fetch --all
 git branch gh-pages origin/gh-pages
 git worktree add build gh-pages
 npm install && npm run build
+add_javadoc_from RxBroadcast/RxBroadcast build/javadoc/latest
 tree -I node_modules build
 
 pushd build
