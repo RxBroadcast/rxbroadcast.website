@@ -13,7 +13,7 @@ add_javadoc_from() {
     popd
 
     test -d "$dest" || mkdir --parents "$dest"
-    mv "$repo/build/docs/javadoc" "$dest"
+    rsync --recursive "$repo/build/docs/javadoc/" "$dest/"
 }
 
 rm --recursive --force build
