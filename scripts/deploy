@@ -19,5 +19,5 @@ pushd build
     git config user.name "Travis CI"
     git commit --all --message "Automated build" --message "$TRAVIS_COMMIT_RANGE"
 
-    git push "https://$GITHUB_USER:$GITHUB_PASSWORD@github.com/$TRAVIS_REPO_SLUG" gh-pages
+    git push "https://$GITHUB_USER:$GITHUB_PASS@github.com/$TRAVIS_REPO_SLUG" gh-pages
 popd
