@@ -33,8 +33,8 @@ script:
     - npm run build
 
 after_success:
-    - ( cd $HOME && curl -LO "https://services.gradle.org/distributions/gradle-2.11-bin.zip" )
-    - ( cd $HOME && unzip -q gradle-2.11-bin.zip && rm gradle-2.11-bin.zip )
-    - export PATH=$HOME/gradle-2.11/bin:$PATH && hash -r && gradle --version
+    - ( cd "$HOME" && curl -LO "https://services.gradle.org/distributions/gradle-2.11-bin.zip" )
+    - ( cd "$HOME" && unzip -q gradle-2.11-bin.zip && rm gradle-2.11-bin.zip )
+    - export PATH="$HOME/gradle-2.11/bin:$PATH" && hash -r && gradle --version
     - git --version
     - scripts/deploy
