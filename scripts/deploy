@@ -9,7 +9,7 @@ add_javadoc_from() {
     mkdir --parents "$repo"
     git clone "https://github.com/$repo" "$repo"
     pushd "$repo"
-        gradle javadoc
+        TERM=dumb gradle javadoc
     popd
 
     test -d "$dest" || mkdir --parents "$dest"
