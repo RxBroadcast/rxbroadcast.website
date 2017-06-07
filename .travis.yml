@@ -25,8 +25,8 @@ env:
         - secure: "ZanS0ahlk5fdCkDTXR8d2WWoreu9+EyXa6N0NHo/qC4J8HuyoYkqUABAq9z3p4Hs4h+rWqIIqPwiAr0pzjJ9U3/709o7vjVohW8sH0sMFfEn5M6IpBDracIDEjvlJfJh+YyZZPhsjbRxARK15B0S6/I3+xK6SArXZf6zkwZyzwYVvb04v3AHMkiMAfrvZIzi1VVkSgfI9QBJBLhmHQmalWpaAgnqYRNklXEOX4Iz+fRWZ4seEX0ia+R/Ileyu7QNOMTtep9GbTnKPRuDk0UQRiaWUJGrbzrdGsLJPPkzEFJkrEsquCM/u2KJjj0cBd6AZeN7lTqG4SjzSXFROY0wSx5N8OqNdNtlGGyvf9w+oKF173uOw0h21DwgHODmbJM62Nr34FLgwSwKA8SNXJ7QdTDL3jiijkiLq33Arelin6CguV571Ku6wkh8BMbF/ZKmT7n94JHqZNifCQgrYLMtiOws8FFUZvEB16sAzieCtJ+W4Zt/HSo6SghKCovffrK+/aF6u1mnP1Q474ZtjTBt1prQNPcWUV+Ql7AbT1EQq463XbxWxbC4im1/lusEPVBDHlhST8km80pMIo3XOfb/IhS4XO6yRtllOxQ8f13b+rcQ0DugWVzdevStOIp8ZaF718VZrJfGYfsk8baNPgaPIsH81eoqM0xFgs/q2PiXUQc="
 
 install:
-    - nvm install 5 && nvm use 5
-    - npm install --global npm@3
+    - nvm install 6 && nvm use 6
+    - npm install --global npm@5
 
 script:
     - npm install
