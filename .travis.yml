@@ -21,6 +21,7 @@ jdk:
     - oraclejdk8
 env:
     global:
+        - GRADLE_VERSION='4.0-rc-1'
         - secure: "PhGHm0DNadLqeECbh5dZLkrMKlX91SstaOYwr5YRrG+0Vx8qSerRQVPS1oF43UbO4HjrNGC9jNj+KbGy+QQlZkJmCt7vS114K35ABmVX2UxP1K/s4zXmnm5qRxquECEBrcGIn1qLgFK1fjwlN/XxtwzXPpi4EHAaljohTIxsjz89HiJZXhKke6WiWElJoXy3IpwA8cynB0rzBi4dSnbS8nrbbYQ3bt3RHrgpI4hG2f7xqFn7QuIviDpU+nip+jfdwIgxS9UTt8f2U42kI4H8OUqKsjx+9rHOxhfb29Yj3ZNgNXIpZjJm7ENoD8FdTp0kLSmWlgspl0/Ad/jXpI8d66OMebUsJdp1nC+RnVv1eK465yxslO6FTiSu+Rbkul+KZcBxZ0sfFJ6bCezvxo/44rQhP1vSPOC6BBBtLV+iSfNb5npy0nB/pDnWXvKaACjgQ0w2EhHf7ZSu1mp4LKeFZcOpZLUG5H4/1wuFIAfnBzj4aGynGkEcODP0K7ESV/n7BXm2rCWfi1tRj5ZXHF9jViYaCa/Qogf9Q7hyDkUIi56stxTEC/+k9Na/J2c+H+seAgz/EWig0I2qINv+njnliCO5O38AgwnT3TOOTxzfVBPslQu1XZkaRef+Ik5rjixPJf1cUaajEeHpFgg/wzYisYRgXVF/ljigVxtjZlLEZcI="
         - secure: "ZanS0ahlk5fdCkDTXR8d2WWoreu9+EyXa6N0NHo/qC4J8HuyoYkqUABAq9z3p4Hs4h+rWqIIqPwiAr0pzjJ9U3/709o7vjVohW8sH0sMFfEn5M6IpBDracIDEjvlJfJh+YyZZPhsjbRxARK15B0S6/I3+xK6SArXZf6zkwZyzwYVvb04v3AHMkiMAfrvZIzi1VVkSgfI9QBJBLhmHQmalWpaAgnqYRNklXEOX4Iz+fRWZ4seEX0ia+R/Ileyu7QNOMTtep9GbTnKPRuDk0UQRiaWUJGrbzrdGsLJPPkzEFJkrEsquCM/u2KJjj0cBd6AZeN7lTqG4SjzSXFROY0wSx5N8OqNdNtlGGyvf9w+oKF173uOw0h21DwgHODmbJM62Nr34FLgwSwKA8SNXJ7QdTDL3jiijkiLq33Arelin6CguV571Ku6wkh8BMbF/ZKmT7n94JHqZNifCQgrYLMtiOws8FFUZvEB16sAzieCtJ+W4Zt/HSo6SghKCovffrK+/aF6u1mnP1Q474ZtjTBt1prQNPcWUV+Ql7AbT1EQq463XbxWxbC4im1/lusEPVBDHlhST8km80pMIo3XOfb/IhS4XO6yRtllOxQ8f13b+rcQ0DugWVzdevStOIp8ZaF718VZrJfGYfsk8baNPgaPIsH81eoqM0xFgs/q2PiXUQc="
 
@@ -33,8 +34,8 @@ script:
     - npm run build
 
 after_success:
-    - ( cd "$HOME" && curl -LO "https://services.gradle.org/distributions/gradle-2.11-bin.zip" )
-    - ( cd "$HOME" && unzip -q gradle-2.11-bin.zip && rm gradle-2.11-bin.zip )
-    - export PATH="$HOME/gradle-2.11/bin:$PATH" && hash -r && gradle --version
+    - ( cd "$HOME" && curl -LO "https://services.gradle.org/distributions/gradle-$GRADLE_VERSION-bin.zip" )
+    - ( cd "$HOME" && unzip -q "gradle-$GRADLE_VERSION-bin.zip" && rm "gradle-$GRADLE_VERSION-bin.zip" )
+    - export "PATH=$HOME/gradle-$GRADLE_VERSION/bin:$PATH" && hash -r && gradle --version
     - git --version
     - scripts/deploy
