@@ -1,21 +1,19 @@
 {
   "private": true,
   "devDependencies": {
-    "autoprefixer": "6.3.3",
-    "babel-cli": "^6.5.1",
-    "babel-preset-es2015": "^6.5.0",
-    "cssnano": "3.5.2",
-    "furtive": "^2.2.3",
-    "metalsmith": "^2.1.0",
-    "metalsmith-html-minifier": "^2.0.0",
-    "metalsmith-postcss": "3.1.0",
-    "metalsmith-sass": "^1.3.0",
-    "metalsmith-watch": "^1.0.1",
-    "superstatic": "^4.0.1",
-    "yargs": "^4.1.0"
+    "autoprefixer": "^7.1.1",
+    "cssnano": "^3.10.0",
+    "furtive": "^2.3.0",
+    "metalsmith": "^2.3.0",
+    "metalsmith-html-minifier": "^2.2.0",
+    "metalsmith-postcss": "^4.0.1",
+    "metalsmith-sass": "^1.4.0",
+    "metalsmith-watch": "^1.0.3",
+    "superstatic": "^4.1.0",
+    "yargs": "^8.0.1"
   },
   "scripts": {
-    "build": "babel-node metalsmith.js --no-serve --no-watch",
-    "build:watch": "babel-node metalsmith.js --serve --watch"
+    "build": "node metalsmith.js --no-serve --no-watch",
+    "build:watch": "node metalsmith.js --serve --watch"
   }
 }
