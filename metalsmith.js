@@ -1,11 +1,15 @@
 const argv = require("yargs").argv;
 const htmlMinifier = require("metalsmith-html-minifier");
+const jsdom = require("jsdom");
+const katex = require("katex");
 const Metalsmith = require("metalsmith");
+const minimatch = require("minimatch");
 const postcss = require("metalsmith-postcss");
 const sass = require("metalsmith-sass");
 const superstatic = require("superstatic").server;
 const watch = require("metalsmith-watch");
 
+const { JSDOM } = jsdom;
 const metalsmith = new Metalsmith(__dirname);
 const server = superstatic({
     port: Number(argv.port || 8000),
@@ -27,6 +31,22 @@ metalsmith.source("website").clean(false)
             cssnano: {},
         },
     }))
+    .use((files, _, done) => {
+        setImmediate(done);
+        Object.keys(files)
+            .filter(minimatch.filter("*.html", {"matchBase": true}))
+            .forEach((file) => {
+                const data = files[file];
+                const dom = new JSDOM(data.contents.toString());
+                const {window: {document}} = dom;
+                Array.from(document.querySelectorAll("[data-katex]"))
+                    .forEach((el) => {
+                        el.innerHTML = katex.renderToString(el.textContent);
+                        el.parentNode.replaceChild(el.firstChild, el);
+                    });
+                data.contents = new Buffer(dom.serialize(), "utf8");
+            });
+    })
     .use(htmlMinifier())
     .use(argv.watch && watch({
         log: _ => { }
