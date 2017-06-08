@@ -8,7 +8,7 @@ const watch = require("metalsmith-watch");
 
 const metalsmith = new Metalsmith(__dirname);
 const server = superstatic({
-    port: 8000,
+    port: Number(argv.port || 8000),
     cwd: __dirname,
     config: {
         public: "./build"
@@ -41,13 +41,14 @@ metalsmith.source("website").clean(false)
             return;
         }
 
-        server.listen(e => {
+        server.listen(function (e) {
             if (e) {
                 console.error("Server error");
                 console.error(e);
                 return;
             }
 
-            console.log("Server started on port 8000");
+            const {port} = this.address();
+            console.log(`Server started on port ${port}`);
         });
     });
