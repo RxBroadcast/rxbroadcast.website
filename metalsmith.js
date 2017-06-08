@@ -21,10 +21,12 @@ metalsmith.source("website").clean(false)
         outputDir: "css/",
         outputStyle: "expanded"
     }))
-    .use(postcss([
-        require("autoprefixer"),
-        require("cssnano"),
-    ]))
+    .use(postcss({
+        plugins: {
+            autoprefixer: {},
+            cssnano: {},
+        },
+    }))
     .use(htmlMinifier())
     .use(argv.watch && watch({
         log: _ => { }
