@@ -5,11 +5,7 @@ sudo: false
 dist: trusty
 addons:
     apt:
-        sources:
-            - git-core
         packages:
-            - git
-            - oracle-java8-installer
             - tree
 
 branches:
