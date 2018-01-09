@@ -38,4 +38,4 @@ after_success:
     - ( cd "$HOME" && unzip -q "gradle-$GRADLE_VERSION-bin.zip" && rm "gradle-$GRADLE_VERSION-bin.zip" )
     - export "PATH=$HOME/gradle-$GRADLE_VERSION/bin:$PATH" && hash -r && gradle --version
     - git --version
-    - scripts/deploy
+    - if [ "$TRAVIS_BRANCH" = "master" ]; then scripts/deploy; fi
