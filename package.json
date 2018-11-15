@@ -9,10 +9,10 @@
     "metalsmith": "^2.3.0",
     "metalsmith-html-minifier": "^2.2.0",
     "metalsmith-postcss": "^4.0.1",
-    "metalsmith-sass": "^1.4.0",
+    "metalsmith-sass": "^1.5.1",
     "metalsmith-watch": "^1.0.3",
     "minimatch": "^3.0.4",
-    "superstatic": "^4.1.0",
+    "superstatic": "^6.0.3",
     "yargs": "^8.0.1"
   },
   "scripts": {
