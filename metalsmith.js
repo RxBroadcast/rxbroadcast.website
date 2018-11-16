@@ -7,7 +7,6 @@ const minimatch = require("minimatch");
 const postcss = require("metalsmith-postcss");
 const sass = require("metalsmith-sass");
 const superstatic = require("superstatic").server;
-const watch = require("metalsmith-watch");
 
 const { JSDOM } = jsdom;
 const metalsmith = new Metalsmith(__dirname);
@@ -48,9 +47,6 @@ metalsmith.source("website").clean(false)
             });
     })
     .use(htmlMinifier())
-    .use(argv.watch && watch({
-        log: _ => { }
-    }))
     .build((err, files) => {
         if (err) {
             console.error(err);
